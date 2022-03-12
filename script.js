@@ -3,6 +3,8 @@ let clickedOrder = [];
 let currentScore = 0;
 let bestPoints = 0;
 
+let clickActive = true;
+
 //0 - verde
 //1 - vermelho
 //2 - amarelo
@@ -25,23 +27,34 @@ const button = document.querySelector('.start')
 
 round.innerHTML = `Round: ${order.length + 1}`
 
+var gameScene = document.getElementById('game-scene');
+var initialScene = document.getElementById('initial-scene');
+
+
 //cria ordem aletoria de cores
 let shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4);
     order[order.length] = colorOrder;
     clickedOrder = [];
     round.innerHTML = `Round: ${order.length}`
-
+    clickActive = false;
+ 
     for(let i in order) {
         let elementColor = createColorElement(order[i]);
         let elementSound = createSoundElement(order[i]);
         lightColor(elementColor, Number(i) + 1 , elementSound);
     }
+
+    //metodo para o jogador não clickar enquanto é mostrado a sequencia para ele
+    setTimeout(() => {
+        clickActive = true;
+    }, order.length*600);
 }
 
 //acende a proxima cor
 let lightColor = (element, number , sound) => {
     number = number * 600;
+  
     setTimeout(() => {
         element.classList.add('selected');
         sound.play()
@@ -61,20 +74,22 @@ let checkOrder = () => {
         }
     }
     if(clickedOrder.length == order.length) {
-        nextLevel();
+        nextLevel();   
     }
 }
 
 //funcao para o clique do usuario
 let click = (color , sound) => {
-    clickedOrder[clickedOrder.length] = color;
-    createColorElement(color).classList.add('selected');
-    sound.play();
+    if(clickActive){
+        clickedOrder[clickedOrder.length] = color;
+        createColorElement(color).classList.add('selected');
+        sound.play();
 
-    setTimeout(() => {
-        createColorElement(color).classList.remove('selected');
-        checkOrder();
-    },250);
+        setTimeout(() => {
+            createColorElement(color).classList.remove('selected');
+            checkOrder();
+        },250);
+    }
 }
 
 //funcao que retorna a cor
@@ -123,10 +138,12 @@ let gameOver = () => {
     alert(`Pontuação: ${currentScore}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`); 
     order = [];
     clickedOrder = [];
+    changeScene(gameScene,initialScene);
 }
 
 //funcao de inicio do jogo
 let playGame = () => {
+    changeScene(initialScene,gameScene);
     order = [];
     clickedOrder = [];
     round.innerHTML = `Round: ${order.length}`
@@ -134,11 +151,16 @@ let playGame = () => {
     nextLevel();
 }
 
+let changeScene = (scene1,scene2) => {
+    scene1.style.display === "none" ? scene1.style.display = "block" : scene1.style.display = "none";
+    scene2.style.display === "none" ? scene2.style.display = "block" : scene2.style.display = "none";
+}
 //eventos de clique para as cores
-green.onclick = () => click(0 , soundGreen);
-red.onclick = () => click(1 , soundRed);
-yellow.onclick = () => click(2 , soundYellow);
-blue.onclick = () => click(3 , soundBlue);
+    green.onclick = () => click(0 , soundGreen);
+    red.onclick = () => click(1 , soundRed);
+    yellow.onclick = () => click(2 , soundYellow);
+    blue.onclick = () => click(3 , soundBlue);
+
 
 //Evento de click do botão: Inicia o Game
 button.addEventListener('click', () => {

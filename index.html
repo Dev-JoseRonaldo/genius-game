@@ -12,19 +12,23 @@
 
 <body>
 
-  <div class="round"></div>
-  <button class="start">START</button>
-
-  <div class="main-game">
-    <div class="genius">
-      <div class="blue"> <audio id="sound-blue" src="/sounds/sounds_blue.mp3" allow="autoplay"></audio></div>
-      <div class="yellow"><audio id="sound-yellow" src="/sounds/sounds_yellow.mp3" allow="autoplay"></audio></div>
-      <div class="red"><audio id="sound-red" src="/sounds/sounds_red.mp3" allow="autoplay"></audio></div>
-      <div class="green"><audio id="sound-green" src="/sounds/sounds_green.mp3" allow="autoplay"></audio></div>
-    </div>
+  <div id="initial-scene" style="display: block;">
+    <button class="start">START</button>
   </div>
 
-  <div class="score">Best Score: 0</div>
+  <div id="game-scene" style="display: none;">
+    <div class="round"></div>
+    <div class="main-game">
+      <div class="genius">
+        <div class="blue"> <audio id="sound-blue" src="/sounds/sounds_blue.mp3" allow="autoplay"></audio></div>
+        <div class="yellow"><audio id="sound-yellow" src="/sounds/sounds_yellow.mp3" allow="autoplay"></audio></div>
+        <div class="red"><audio id="sound-red" src="/sounds/sounds_red.mp3" allow="autoplay"></audio></div>
+        <div class="green"><audio id="sound-green" src="/sounds/sounds_green.mp3" allow="autoplay"></audio></div>
+      </div>
+    </div>
+    <div class="score">Best Score: 0</div>
+  </div>
+
 
   <script type="text/javascript" src="script.js"></script>
 </body>

@@ -3,12 +3,21 @@
   --green-primary: #19D771;
   --yellow-primary: #EED72B;
   --red-primary: #F9472E;
+
+  --border-blue-primary: #0e415c;
+  --border-green-primary: #0a582f;
+  --border-yellow-primary: #635913;
+  --border-red-primary: #6b2117;
+
+
 }
 
 body {
   margin: 0;
   background: linear-gradient(90deg, rgba(100, 98, 107, 1) 0%, rgba(228, 215, 215, 1) 51%, rgba(100, 98, 107, 1) 100%);
 }
+
+/*--------------- Game Scene ------------- */
 
 .score, .round {
   margin-top: 15px;
@@ -30,7 +39,7 @@ main {
   display: grid;
   grid-template-areas: 'verde vermelho'
     'amarelo azul';
-  grid-gap: 20px;
+  grid-gap: 15px;
   border: 20px solid rgb(26, 25, 25);
   background-color: rgb(26, 25, 25);
   box-shadow: 1px 0px 15px 4px #000000;
@@ -42,30 +51,34 @@ main {
 
 .blue {
   grid-area: azul;
-  background-color: var(--blue-primary);
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-primary) 40%, rgb(255, 255, 255) 100%);
   border-bottom-right-radius: 100%;
   border-top-left-radius: 10%;
+  border: 6px solid var(--border-blue-primary);
 }
 
 .green {
   grid-area: verde;
-  background-color: var(--green-primary);
+  background: linear-gradient(315deg, var(--green-primary) 0%, var(--green-primary) 40%, rgb(255, 255, 255) 100%);
   border-top-left-radius: 100%;
   border-bottom-right-radius: 10%;
+  border: 6px solid var(--border-green-primary);
 }
 
 .yellow {
   grid-area: amarelo;
-  background-color: var(--yellow-primary);
+  background: linear-gradient(225deg, var(--yellow-primary) 0%, var(--yellow-primary) 40%, rgb(255, 255, 255) 100%);
   border-bottom-left-radius: 100%;
   border-top-right-radius: 10%;
+  border: 6px solid var(--border-yellow-primary);
 }
 
 .red {
   grid-area: vermelho;
-  background-color: var(--red-primary);
+  background: linear-gradient(45deg, var(--red-primary) 0%, var(--red-primary) 40%, rgb(255, 255, 255) 100%);
   border-top-right-radius: 100%;
   border-bottom-left-radius: 10%;
+  border: 6px solid var(--border-red-primary);
 }
 
 .start {
@@ -84,5 +97,8 @@ main {
 }
 
 .selected {
-  background-color: rgb(255, 255, 255);
+  background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 100%);
+  filter: brightness(2);
 }
+
+/*--------------- Initial Scene ------------- */
