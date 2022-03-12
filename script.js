@@ -1,6 +1,7 @@
 let order = [];
 let clickedOrder = [];
-let score = 0;
+let currentScore = 0;
+let bestPoints = 0;
 
 //0 - verde
 //1 - vermelho
@@ -12,24 +13,39 @@ const red = document.querySelector('.red');
 const green = document.querySelector('.green');
 const yellow = document.querySelector('.yellow');
 
+const soundBlue = document.getElementById('sound-blue')
+const soundRed= document.getElementById('sound-red')
+const soundGreen = document.getElementById('sound-green')
+const soundYellow = document.getElementById('sound-yellow')
+
+
+const round = document.querySelector('.round');
+const bestScore = document.querySelector('.score');
+const button = document.querySelector('.start')
+
+round.innerHTML = `Round: ${order.length + 1}`
+
 //cria ordem aletoria de cores
 let shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4);
     order[order.length] = colorOrder;
     clickedOrder = [];
+    round.innerHTML = `Round: ${order.length}`
 
     for(let i in order) {
         let elementColor = createColorElement(order[i]);
-        lightColor(elementColor, Number(i) + 1);
+        let elementSound = createSoundElement(order[i]);
+        lightColor(elementColor, Number(i) + 1 , elementSound);
     }
 }
 
 //acende a proxima cor
-let lightColor = (element, number) => {
-    number = number * 500;
+let lightColor = (element, number , sound) => {
+    number = number * 600;
     setTimeout(() => {
         element.classList.add('selected');
-    }, number - 250);
+        sound.play()
+    }, number - 200);
     setTimeout(() => {
         element.classList.remove('selected');
     } ,number);
@@ -39,20 +55,21 @@ let lightColor = (element, number) => {
 let checkOrder = () => {
     for(let i in clickedOrder) {
         if(clickedOrder[i] != order[i]) {
+            bestScor(order.length);
             gameOver();
             break;
         }
     }
     if(clickedOrder.length == order.length) {
-        alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
         nextLevel();
     }
 }
 
 //funcao para o clique do usuario
-let click = (color) => {
+let click = (color , sound) => {
     clickedOrder[clickedOrder.length] = color;
     createColorElement(color).classList.add('selected');
+    sound.play();
 
     setTimeout(() => {
         createColorElement(color).classList.remove('selected');
@@ -73,33 +90,57 @@ let createColorElement = (color) => {
     }
 }
 
+//função que retorna o som
+let createSoundElement = (number) => {
+    if(number === 0) {
+        return soundGreen;
+    } else if(number === 1) {
+        return soundRed;
+    } else if(number === 2) {
+        return soundYellow;
+    } else if(number === 3) {
+        return soundBlue;
+    }
+}
+
 //funcao para proximo nivel do jogo
 let nextLevel = () => {
-    score++;
+    currentScore ++;
     shuffleOrder();
+}
+
+//atualiza a melhor pontuação do jogador
+const bestScor = (length) => {
+    points = length;
+    if(currentScore > bestPoints) {
+        bestPoints = currentScore;
+        bestScore.innerHTML = `Best Score: ${bestPoints}`;
+    }   
 }
 
 //funcao para game over
 let gameOver = () => {
-    alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
+    alert(`Pontuação: ${currentScore}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`); 
     order = [];
     clickedOrder = [];
-
-    playGame();
 }
 
 //funcao de inicio do jogo
 let playGame = () => {
-    alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
-    score = 0;
+    order = [];
+    clickedOrder = [];
+    round.innerHTML = `Round: ${order.length}`
+    currentScore = 0;
     nextLevel();
 }
 
 //eventos de clique para as cores
-green.onclick = () => click(0);
-red.onclick = () => click(1);
-yellow.onclick = () => click(2);
-blue.onclick = () => click(3);
+green.onclick = () => click(0 , soundGreen);
+red.onclick = () => click(1 , soundRed);
+yellow.onclick = () => click(2 , soundYellow);
+blue.onclick = () => click(3 , soundBlue);
 
-//inicio do jogo
-playGame();
+//Evento de click do botão: Inicia o Game
+button.addEventListener('click', () => {
+    playGame()
+})

@@ -12,16 +12,19 @@
 
 <body>
 
+  <div class="round"></div>
+  <button class="start">START</button>
+
   <div class="main-game">
     <div class="genius">
-      <div class="blue"></div>
-      <div class="yellow"></div>
-      <div class="red"></div>
-      <div class="green"></div>
+      <div class="blue"> <audio id="sound-blue" src="/sounds/sounds_blue.mp3" allow="autoplay"></audio></div>
+      <div class="yellow"><audio id="sound-yellow" src="/sounds/sounds_yellow.mp3" allow="autoplay"></audio></div>
+      <div class="red"><audio id="sound-red" src="/sounds/sounds_red.mp3" allow="autoplay"></audio></div>
+      <div class="green"><audio id="sound-green" src="/sounds/sounds_green.mp3" allow="autoplay"></audio></div>
     </div>
   </div>
 
-
+  <div class="score">Best Score: 0</div>
 
   <script type="text/javascript" src="script.js"></script>
 </body>
