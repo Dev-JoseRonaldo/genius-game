@@ -17,7 +17,7 @@
   --background-header: #F5F5F5;
 
   --logo-primary: #333333;
-  --logo-secundary: #BADE2C;
+  --logo-secundary: #8aa811;
   --color-navegation: #666666;
   --border-search: #b4b4b4;
 
@@ -182,7 +182,7 @@ header nav ul li a:hover {
   height: 30px;
   width: 50px;
   color: white;
-  background-color: #BAE025;
+  background-color: var(--logo-secundary);
   float: right;
   border: 1px solid var(--border-search);
   display: flex;
@@ -192,7 +192,14 @@ header nav ul li a:hover {
   border-left: 0;
 }
 
+#title-game {
+  font-family: var(--font-secundary);
+  text-align: center;
+}
 
+.game-box {
+  margin-bottom: 80px;
+}
 
 #initial-scene {
   display: flex;
@@ -259,4 +266,30 @@ header nav ul li a:hover {
 .start:hover {
   background-color: rgba(56, 47, 47, 0.699);
   cursor: pointer;
+}
+
+.description-box {
+  padding: 0 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+
+}
+
+.description, .instruction {
+  width: 60%;
+}
+
+.description-box h2 {
+  margin: 0;
+  background-color: var(--logo-secundary);
+  padding: 0.3rem 1rem;
+  color: var(--background-header);
+}
+
+.description-box p {
+  margin: 0;
+  background-color: var(--background-header);
+  padding: 0.8rem 1rem;
 }
