@@ -12,10 +12,19 @@
 
 <body>
 
-  <div id="initial-scene" style="display: block;">
+  <div id="initial-scene">
+    <h1>MEMORY</h1>
+    <h2>CLASSIC</h2>
+    <div class="main-game-menu">
+      <div class="genius-menu">
+        <div class="blue-menu"></div>
+        <div class="yellow-menu"></div>
+        <div class="red-menu"></audio></div>
+        <div class="green-menu"></audio></div>
+      </div>
+    </div>
     <button class="start">START</button>
   </div>
-
   <div id="game-scene" style="display: none;">
     <div class="round"></div>
     <div class="main-game">
@@ -24,6 +33,7 @@
         <div class="yellow"><audio id="sound-yellow" src="/sounds/sounds_yellow.mp3" allow="autoplay"></audio></div>
         <div class="red"><audio id="sound-red" src="/sounds/sounds_red.mp3" allow="autoplay"></audio></div>
         <div class="green"><audio id="sound-green" src="/sounds/sounds_green.mp3" allow="autoplay"></audio></div>
+        <audio id="sound-game-over" src="/sounds/game_over.wav" allow="autoplay"></audio>
       </div>
     </div>
     <div class="score">Best Score: 0</div>

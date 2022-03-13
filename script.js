@@ -4,7 +4,10 @@ let currentScore = 0;
 let bestPoints = 0;
 
 let clickActive = true;
+let gameOverCheck = false;
 
+
+let orderMenu = [0,1,2,3];
 //0 - verde
 //1 - vermelho
 //2 - amarelo
@@ -15,10 +18,16 @@ const red = document.querySelector('.red');
 const green = document.querySelector('.green');
 const yellow = document.querySelector('.yellow');
 
+const blueMenu = document.querySelector('.blue-menu');
+const redMenu = document.querySelector('.red-menu');
+const greenMenu = document.querySelector('.green-menu');
+const yellowMenu = document.querySelector('.yellow-menu');
+
 const soundBlue = document.getElementById('sound-blue')
 const soundRed= document.getElementById('sound-red')
 const soundGreen = document.getElementById('sound-green')
 const soundYellow = document.getElementById('sound-yellow')
+const soundGameOver = document.getElementById('sound-game-over')
 
 
 const round = document.querySelector('.round');
@@ -42,6 +51,9 @@ let shuffleOrder = () => {
     for(let i in order) {
         let elementColor = createColorElement(order[i]);
         let elementSound = createSoundElement(order[i]);
+        if(gameOverCheck){
+            break;
+        }
         lightColor(elementColor, Number(i) + 1 , elementSound);
     }
 
@@ -69,6 +81,7 @@ let checkOrder = () => {
     for(let i in clickedOrder) {
         if(clickedOrder[i] != order[i]) {
             bestScor(order.length);
+            gameOverCheck = true;
             gameOver();
             break;
         }
@@ -135,14 +148,18 @@ const bestScor = (length) => {
 
 //funcao para game over
 let gameOver = () => {
-    alert(`Pontuação: ${currentScore}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`); 
+    soundGameOver.play();
     order = [];
     clickedOrder = [];
-    changeScene(gameScene,initialScene);
+
+    setTimeout(() => {
+        changeScene(gameScene,initialScene);
+    } ,800);
 }
 
 //funcao de inicio do jogo
 let playGame = () => {
+    gameOverCheck = false;
     changeScene(initialScene,gameScene);
     order = [];
     clickedOrder = [];
@@ -153,7 +170,7 @@ let playGame = () => {
 
 let changeScene = (scene1,scene2) => {
     scene1.style.display === "none" ? scene1.style.display = "block" : scene1.style.display = "none";
-    scene2.style.display === "none" ? scene2.style.display = "block" : scene2.style.display = "none";
+    scene2.style.display === "none" ? scene2.style.display = "flex" : scene2.style.display = "none";
 }
 //eventos de clique para as cores
     green.onclick = () => click(0 , soundGreen);
@@ -166,3 +183,50 @@ let changeScene = (scene1,scene2) => {
 button.addEventListener('click', () => {
     playGame()
 })
+
+
+//Programação para animação no menu
+
+//criação da cor
+let shuffleOrderMenu = () => {
+    let i = 0;
+    let repetições = 0;
+    for(let i = 0; i<=3 ; i++) {
+        let elementColorMenu = createColorElementMenu(orderMenu[i]);
+        lightColorMenu(elementColorMenu, Number(i) + 1);
+        if(initialScene.style.display === 'none'){
+            break;
+        }
+    }
+    //tempo pra chamar a função denovo
+    setTimeout(() => {
+        shuffleOrderMenu();
+    }, (Number(3) + 1)* 500);
+}
+
+//acende a proxima cor
+let lightColorMenu = (element, number) => {
+    number = number * 500;
+    setTimeout(() => {
+        element.classList.add('selected');
+    }, number - 200);
+    setTimeout(() => {
+        element.classList.remove('selected');
+    } ,number);
+}
+
+//funcao que retorna a cor
+let createColorElementMenu = (color) => {
+    if(color == 0) {
+        return greenMenu;
+    } else if(color == 1) {
+        return redMenu;
+    } else if (color == 2) {
+        return blueMenu;
+        
+    } else if (color == 3) {
+        return yellowMenu;
+    }
+}
+
+shuffleOrderMenu();
