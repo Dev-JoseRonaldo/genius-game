@@ -1,3 +1,4 @@
+//base: https://www.jogos360.com.br/genius_memory_classic.html
 let order = [];
 let clickedOrder = [];
 let currentScore = 0;
@@ -169,7 +170,7 @@ let playGame = () => {
 }
 
 let changeScene = (scene1,scene2) => {
-    scene1.style.display === "none" ? scene1.style.display = "block" : scene1.style.display = "none";
+    scene1.style.display === "none" ? scene1.style.display = "flex" : scene1.style.display = "none";
     scene2.style.display === "none" ? scene2.style.display = "flex" : scene2.style.display = "none";
 }
 //eventos de clique para as cores

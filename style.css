@@ -1,22 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
 :root {
   --blue-primary: #259DDF;
   --green-primary: #19D771;
   --yellow-primary: #EED72B;
   --red-primary: #F9472E;
 
-  --border-blue-primary: #0e415c;
-  --border-green-primary: #0a582f;
-  --border-yellow-primary: #635913;
-  --border-red-primary: #6b2117;
+  --border-blue-primary: #0a2f42;
+  --border-green-primary: #083f22;
+  --border-yellow-primary: #3f390d;
+  --border-red-primary: #44150f;
 
   --background-color-game: #1A1A1A;
+  --background-header: #F5F5F5;
 
+  --logo-primary: #333333;
+  --logo-secundary: #BADE2C;
+  --color-navegation: #666666;
+  --border-search: #b4b4b4;
 
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secundary: 'Nunito', sans-serif;
+  ;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(90deg, rgba(100, 98, 107, 1) 0%, rgba(228, 215, 215, 1) 51%, rgba(100, 98, 107, 1) 100%);
+  background-color: white;
+  font-family: var(--font-primary);
+
 }
 
 /*--------------- Game Scene ------------- */
@@ -46,8 +60,8 @@ main {
   background-color: rgb(26, 25, 25);
   box-shadow: 1px 0px 15px 4px #000000;
   border-radius: 100%;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   padding: 10px;
 }
 
@@ -89,8 +103,107 @@ main {
 }
 
 /*--------------- Initial Scene ------------- */
+header {
+  padding: 1rem 8rem 1rem;
+  background-color: var(--background-header);
+  box-shadow: 0 0.3px 5px 0.5px var(--color-navegation);
+  margin-bottom: 50px;
+  position: relative;
+}
+
+header h1 {
+  font-family: var(--font-primary);
+  color: var(--logo-primary);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+header h1 span {
+  font-family: var(--font-secundary);
+  color: var(--logo-secundary);
+  font-size: 28px;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+header nav ul li a {
+  font-family: var(--font-secundary);
+  text-decoration: none;
+  color: var(--color-navegation);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+header nav ul li a:hover {
+  color: var(--logo-secundary);
+  text-decoration: underline;
+}
+
+.navegation-side {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rigth-navegation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-text {
+  height: 30px;
+  border: 1px solid var(--border-search);
+  border-right: 0;
+  padding: 0 5px 0 12px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  box-shadow: inset 1px 1px 1px rgb(0 0 0 / 10%);
+  border-radius: 6px 0 0 6px;
+  outline: 0;
+}
+
+.search-btn {
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: #BAE025;
+  float: right;
+  border: 1px solid var(--border-search);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 6px 6px 0px;
+  border-left: 0;
+}
+
+
 
 #initial-scene {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-menu {
+  width: 940px;
+  height: 530px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,9 +211,27 @@ main {
   background-color: var(--background-color-game);
 }
 
-#initial-scene h1, h2 {
-  color: white;
+#game-menu, #game {
+  border: 2px solid black;
+  box-shadow: 0px 0px 20px 1px #3d3d3d;
 }
+
+#game {
+  width: 940px;
+  height: 530px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--background-color-game);
+}
+
+#game-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .genius-menu {
   display: grid;
