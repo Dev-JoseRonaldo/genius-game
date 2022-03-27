@@ -25,17 +25,7 @@
 
   --font-primary: 'Open Sans', sans-serif;
   --font-secundary: 'Nunito', sans-serif;
-  ;
 }
-
-body {
-  margin: 0;
-  background-color: var(--background-body);
-  font-family: var(--font-primary);
-
-}
-
-/*--------------- Game Scene ------------- */
 
 .score-box {
   width: 100%;
@@ -56,14 +46,6 @@ body {
   color: var(--text-color);
   font-family: var(--font-secundary);
   font-size: 1.8rem;
-}
-
-
-
-
-main {
-  height: 100vh;
-  width: 100vw;
 }
 
 .main-game {
@@ -125,96 +107,9 @@ main {
 }
 
 /*--------------- Initial Scene ------------- */
-header {
-  padding: 1rem 8rem 1rem;
-  background-color: var(--background-header);
-  box-shadow: 0 0.3px 5px 0.5px var(--color-navegation);
-  margin-bottom: 50px;
-  position: relative;
-}
-
-header h1 {
-  font-family: var(--font-primary);
-  color: var(--logo-primary);
-  font-size: 30px;
-  font-weight: 700;
-  margin: 0;
-}
-
-header h1 span {
-  font-family: var(--font-secundary);
-  color: var(--logo-secundary);
-  font-size: 28px;
-}
-
-header nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  list-style: none;
-}
-
-header nav ul li a {
-  font-family: var(--font-secundary);
-  text-decoration: none;
-  color: var(--color-navegation);
-  font-family: var(--font-primary);
-  font-size: 14px;
-  font-weight: 400;
-}
-
-header nav ul li a:hover {
-  color: var(--logo-secundary);
-  text-decoration: underline;
-}
-
-.navegation-side {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.rigth-navegation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
-
-.search-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-text {
-  height: 30px;
-  border: 1px solid var(--border-search);
-  border-right: 0;
-  padding: 0 5px 0 12px;
-  border-top-left-radius: 0%;
-  border-bottom-left-radius: 0%;
-  box-shadow: inset 1px 1px 1px rgb(0 0 0 / 10%);
-  border-radius: 6px 0 0 6px;
-  outline: 0;
-}
-
-.search-btn {
-  height: 30px;
-  width: 50px;
-  color: white;
-  background-color: var(--logo-secundary);
-  float: right;
-  border: 1px solid var(--border-search);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0px 6px 6px 0px;
-  border-left: 0;
-}
 
 #title-game {
+  margin: 0 0 40px 0;
   font-family: var(--font-secundary);
   text-align: center;
 }
@@ -312,34 +207,10 @@ header nav ul li a:hover {
   cursor: pointer;
 }
 
-.description-box {
-  padding: 0 10rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-
-}
-
-.description, .instruction {
-  width: 60%;
-}
-
-.description-box h2 {
-  margin: 0;
-  background-color: var(--logo-secundary);
-  padding: 0.3rem 1rem;
-  color: var(--background-header);
-}
-
-.description-box p {
-  margin: 0;
-  background-color: var(--background-header);
-  padding: 0.8rem 1rem;
-}
 
 .box {
   display: grid;
+  gap: 2px;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -357,47 +228,59 @@ header nav ul li a:hover {
 .box-green {
   grid-area: green0;
   background-color: var(--green-primary);
-  border: 1px solid black;
 }
 
 .box-green1 {
   grid-area: green1;
   background-color: var(--green-primary);
-  border: 1px solid black;
 }
 
 .box-red {
   grid-area: red0;
   background-color: var(--red-primary);
-  border: 1px solid black;
 }
 
 .box-red1 {
   grid-area: red1;
   background-color: var(--red-primary);
-  border: 1px solid black;
 }
 
 .box-yellow {
   grid-area: yellow0;
   background-color: var(--yellow-primary);
-  border: 1px solid black;
 }
 
 .box-yellow1 {
   grid-area: yellow1;
   background-color: var(--yellow-primary);
-  border: 1px solid black;
 }
 
 .box-blue {
   grid-area: blue0;
   background-color: var(--blue-primary);
-  border: 1px solid black;
 }
 
 .box-blue1 {
   grid-area: blue1;
   background-color: var(--blue-primary);
+}
+
+.box-blue, .box-blue1 {
+  box-shadow: -2px -2px 5px 2px #000000;
+  border: 1px solid black;
+}
+
+.box-green, .box-green1 {
+  box-shadow: 2px 2px 5px 2px #000000;
+  border: 1px solid black;
+}
+
+.box-yellow, .box-yellow1 {
+  box-shadow: 2px -2px 5px 2px #000000;
+  border: 1px solid black;
+}
+
+.box-red, .box-red1 {
+  box-shadow: -2px 2px 5px 2px #000000;
   border: 1px solid black;
 }

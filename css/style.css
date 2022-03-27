@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+  --blue-primary: #259DDF;
+  --green-primary: #19D771;
+  --yellow-primary: #EED72B;
+  --red-primary: #F9472E;
+
+  --border-blue-primary: #0a2f42;
+  --border-green-primary: #083f22;
+  --border-yellow-primary: #3f390d;
+  --border-red-primary: #44150f;
+
+  --background-color-game: #1A1A1A;
+  --background-header: #F5F5F5;
+  --text-color: #ffffff;
+  --background-body: #ffffff;
+
+  --logo-primary: #333333;
+  --logo-secundary: #8aa811;
+  --color-navegation: #666666;
+  --border-search: #b4b4b4;
+
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secundary: 'Nunito', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-body);
+  font-family: var(--font-primary);
+
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+header {
+  padding: 1rem 8rem 1rem;
+  background-color: var(--background-header);
+  box-shadow: 0 0.3px 5px 0.5px var(--color-navegation);
+  margin-bottom: 50px;
+  position: relative;
+}
+
+
+header h1 {
+  font-family: var(--font-primary);
+  color: var(--logo-primary);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+header h1 span {
+  font-family: var(--font-secundary);
+  color: var(--logo-secundary);
+  font-size: 28px;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+header nav ul li a {
+  font-family: var(--font-secundary);
+  text-decoration: none;
+  color: var(--color-navegation);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+header nav ul li a:hover {
+  color: var(--logo-secundary);
+  text-decoration: underline;
+}
+
+.navegation-side {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rigth-navegation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-text {
+  height: 30px;
+  border: 1px solid var(--border-search);
+  border-right: 0;
+  padding: 0 5px 0 12px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  box-shadow: inset 1px 1px 1px rgb(0 0 0 / 10%);
+  border-radius: 6px 0 0 6px;
+  outline: 0;
+}
+
+.search-btn {
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: var(--logo-secundary);
+  float: right;
+  border: 1px solid var(--border-search);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 6px 6px 0px;
+  border-left: 0;
+}
+
+
+.description-box {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 100px;
+}
+
+.description, .instruction {
+  width: 60%;
+}
+
+.description-box h2 {
+  margin: 0;
+  background-color: var(--logo-secundary);
+  padding: 0.3rem 1rem;
+  color: var(--background-header);
+}
+
+.description-box p {
+  margin: 0;
+  background-color: var(--background-header);
+  padding: 0.8rem 1rem;
+}
+
+/*--------------- Game Scene ------------- */
