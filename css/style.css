@@ -16,6 +16,7 @@
   --background-color-game: #1A1A1A;
   --background-header: #F5F5F5;
   --text-color: #ffffff;
+  --text-color-black: #000000;
   --background-body: #ffffff;
   --background-footer: #141414;
   --background-footer-bottom: #000000;
@@ -33,7 +34,6 @@ body {
   margin: 0;
   background-color: var(--background-body);
   font-family: var(--font-primary);
-
 }
 
 main {
@@ -73,6 +73,7 @@ header nav ul {
   align-items: center;
   gap: 40px;
   list-style: none;
+  margin: 0;
 }
 
 header nav ul li a {
@@ -136,7 +137,7 @@ header nav ul li a:hover {
 
 
 .description-box {
-  width: 90%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -162,6 +163,58 @@ header nav ul li a:hover {
   margin: 0;
   background-color: var(--background-header);
   padding: 0.8rem 1rem;
+}
+
+/*-------------- more game section --------*/
+
+.more-games {
+  width: 80%;
+}
+
+.more-games h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color-black);
+  font-family: var(--font-primary);
+}
+
+.row {
+  text-align: center;
+  border: 1px solid var(--color-navegation);
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.games-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--text-color-black);
+}
+
+.games-card:hover {
+  color: var(--logo-secundary);
+  text-decoration: underline;
+}
+
+.games-card img {
+  height: 100px;
+  width: 140px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.games-card h5 {
+  color: var(--text-color-black);
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-secundary);
+  margin: 0;
+  width: 100%;
 }
 
 /*--------------- footer ------------- */
@@ -246,7 +299,6 @@ footer .socials {
   gap: 20px;
   text-decoration: none;
   list-style: none;
-
 }
 
 footer .socials li a i {
