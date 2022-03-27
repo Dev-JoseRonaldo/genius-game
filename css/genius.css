@@ -66,7 +66,7 @@
   border-radius: 100%;
   width: 400px;
   height: 400px;
-  padding: 10px;
+  padding: 0.625em;
 }
 
 .blue, .blue-menu {
@@ -109,13 +109,13 @@
 /*--------------- Initial Scene ------------- */
 
 #title-game {
-  margin: 0 0 40px 0;
+  margin: 0 0 2.5rem 0;
   font-family: var(--font-secundary);
   text-align: center;
 }
 
 .game-box {
-  margin-bottom: 80px;
+  margin-bottom: 5em;
 }
 
 #initial-scene {
@@ -145,13 +145,13 @@
 }
 
 #game-menu h1 {
-  font-size: 64px;
+  font-size: 4em;
   margin: 0;
 }
 
 #game-menu h2 {
-  font-size: 30px;
-  margin: 0 0 25px 0px;
+  font-size: 1.875em;
+  margin: 0 0 1.625rem 0px;
 }
 
 #game-menu, #game {
@@ -192,8 +192,8 @@
 }
 
 .start {
-  font-size: 16px;
-  margin-top: 50px;
+  font-size: 1em;
+  margin-top: 3.125em;
   background-color: rgb(39, 37, 37);
   color: antiquewhite;
   border-radius: 10%;
@@ -283,4 +283,72 @@
 .box-red, .box-red1 {
   box-shadow: -2px 2px 5px 2px #000000;
   border: 1px solid black;
+}
+
+
+/*------------------------- Medias Queries  ---------------------------*/
+
+/* Diminuar tela do game */
+@media(max-width: 960px) {
+
+  #game-menu {
+    width: 846px;
+    height: 477px;
+  }
+
+  #game-menu h1 {
+    font-size: 3.6em;
+  }
+
+  #game-menu h2 {
+    font-size: 1.68em;
+    margin: 0 0 1.625rem 0px;
+  }
+
+  .start {
+    font-size: 0.9em;
+    margin-top: 2.8125em;
+    padding: 5px 8px;
+  }
+
+  #game {
+    width: 846px;
+    height: 477px;
+  }
+
+  .score-box h3, .score, .round, .round-box h3 {
+    font-size: 1.625rem;
+  }
+}
+
+@media(max-width: 860px) {
+
+  #game-menu {
+    width: 752px;
+    height: 424px;
+  }
+
+  #game-menu h1 {
+    font-size: 3.2em;
+  }
+
+  #game-menu h2 {
+    font-size: 1.5em;
+    margin: 0 0 1.625rem 0px;
+  }
+
+  .start {
+    font-size: 0.8em;
+    margin-top: 2.5em;
+    padding: 5px 8px;
+  }
+
+  #game {
+    width: 752px;
+    height: 424px;
+  }
+
+  .score-box h3, .score, .round, .round-box h3 {
+    font-size: 1.44rem;
+  }
 }
