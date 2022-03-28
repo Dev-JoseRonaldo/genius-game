@@ -139,6 +139,10 @@ header nav ul li a:hover {
   border-left: 0;
 }
 
+.search-btn:hover {
+  color: white;
+}
+
 
 .description-box {
   width: 80%;
@@ -210,6 +214,8 @@ header nav ul li a:hover {
   padding: 0;
   justify-content: center;
   align-items: center;
+  border: 1px solid var(--color-navegation);
+  object-fit: cover;
 }
 
 .games-card h5 {
