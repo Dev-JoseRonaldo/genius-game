@@ -98,6 +98,11 @@ header nav ul li a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+}
+
+.navegation-side a {
+  text-decoration: none;
 }
 
 .rigth-navegation {
@@ -186,11 +191,10 @@ header nav ul li a:hover {
   font-family: var(--font-primary);
 }
 
-.row {
-  text-align: center;
+#row {
   border: 1px solid var(--color-navegation);
-  padding-top: 1.25em;
-  margin-bottom: 7.5em;
+  padding-top: 1.25rem;
+  margin-bottom: 2rem;
 }
 
 .games-card {
@@ -200,6 +204,7 @@ header nav ul li a:hover {
   flex-direction: column;
   text-decoration: none;
   color: var(--text-color-black);
+  text-align: center;
 }
 
 .games-card:hover {
