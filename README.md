@@ -46,7 +46,7 @@ Baixe este repositório e com seu teminal, entre no diretório
 
 ## 🔖 Layout
 
-Você pode visualizar o projeto no ar através [desse link](joseronaldo-jrgames.netlify.app).
+Você pode visualizar o projeto no ar através [desse link](https://joseronaldo-jrgames.netlify.app/).
 
 OBS: Apenas o game "Genius" está disponível, estou programando mais jogos no momento para melhorar o site! Agradeço a compreensão.
 
